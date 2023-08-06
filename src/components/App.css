@@ -31,6 +31,15 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.used {
+    font-size: 1.5rem;
+    color: #000000;
+    max-width: 600px;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .enable {
     font-size: 1.5rem;
     max-width: 600px;
@@ -49,6 +58,13 @@ h2 {
     color: #007bff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.completed-game {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: red;
 }
 
 @media screen and (max-width: 600px) {
