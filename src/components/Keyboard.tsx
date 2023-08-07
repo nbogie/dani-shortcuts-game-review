@@ -27,7 +27,11 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
             }
         });
 
-        Mousetrap.bind("ctrl+z", () => {
+        Mousetrap.bind("ctrl+[", (e) => {
+            e.preventDefault();
+        });
+
+        Mousetrap.bind("alt+z", () => {
             if (currentLevel === 2) {
                 const newLevel = currentLevel + 1;
                 setCurrentLevel(newLevel);
