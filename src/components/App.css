@@ -10,10 +10,11 @@
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     text-align: center;
     color: #007bff;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 h2 {
@@ -46,6 +47,9 @@ h2 {
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(90, 52, 52);
 }
 
 .Keyboard button {
@@ -64,7 +68,29 @@ h2 {
     margin-top: 20px;
     font-size: 30px;
     font-weight: bolder;
-    color: red;
+    color: rgb(250, 116, 116);
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+.clue {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: rgb(104, 84, 215);
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.clue-caption {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.completed-game-container {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(250, 116, 116);
 }
 
 @media screen and (max-width: 600px) {

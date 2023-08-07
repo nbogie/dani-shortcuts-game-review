@@ -18,7 +18,7 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
             }
         });
 
-        Mousetrap.bind("ctrl+[", (e) => {
+        Mousetrap.bind("ctrl+]", (e) => {
             e.preventDefault();
             if (currentLevel === 1) {
                 const newLevel = currentLevel + 1;

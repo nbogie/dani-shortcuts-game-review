@@ -49,7 +49,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Shortcuts Game</h1>
+            <h1>The Shortcuts Game</h1>
             <h2>The current level is: {currentLevel}</h2>
             <Keyboard onLevelChange={handleLevelChange} />{" "}
             <p className={levelOneClass()}>
@@ -67,7 +67,17 @@ function App() {
                 fit the text to your window.
             </p>
             {levelThreeIsCompleted && (
-                <div className="completed-game">GAME COMPLETED!</div>
+                <div className="completed-game-container">
+                    <div className="completed-game">
+                        {" "}
+                        🎊 GAME COMPLETED! 🎉{" "}
+                    </div>
+                    <div className="completed-game">
+                        You're a Keyboard Master!
+                    </div>
+                    <div className="clue-caption">The clue is: </div>
+                    <div className="clue">BUMFUZZLE</div>
+                </div>
             )}
         </div>
     );
