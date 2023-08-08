@@ -12,44 +12,22 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
     // and pass different props for each level to avoid repetition.
 
     useEffect(() => {
-        Mousetrap.bind("ctrl+/", (e) => {
-            e.preventDefault();
-            if (currentLevel === 0) {
-                const newLevel = currentLevel + 1;
-                setCurrentLevel(newLevel);
-                onLevelChange(newLevel); // to update the parent component.
-            }
-        });
+        const handleLevelShortcut = (shortcut: string, level: number) => {
+            Mousetrap.bind(shortcut, (e) => {
+                e.preventDefault();
+                if (currentLevel === level - 1) {
+                    const newLevel = level;
+                    setCurrentLevel(newLevel);
+                    onLevelChange(newLevel);
+                }
+            });
+        };
 
-        Mousetrap.bind("ctrl+]", (e) => {
-            e.preventDefault();
-            if (currentLevel === 1) {
-                const newLevel = currentLevel + 1;
-                setCurrentLevel(newLevel);
-                onLevelChange(newLevel);
-            }
-        });
-
-        Mousetrap.bind("ctrl+[", (e) => {
-            e.preventDefault();
-        });
-
-        Mousetrap.bind("alt+z", () => {
-            if (currentLevel === 2) {
-                const newLevel = currentLevel + 1;
-                setCurrentLevel(newLevel);
-                onLevelChange(newLevel);
-            }
-        });
-
-        Mousetrap.bind("ctrl+b", (e) => {
-            e.preventDefault();
-            if (currentLevel === 3) {
-                const newLevel = currentLevel + 1;
-                setCurrentLevel(newLevel);
-                onLevelChange(newLevel);
-            }
-        });
+        handleLevelShortcut("ctrl+[", -1);
+        handleLevelShortcut("ctrl+/", 1);
+        handleLevelShortcut("ctrl+]", 2);
+        handleLevelShortcut("alt+z", 3);
+        handleLevelShortcut("ctrl+b", 4);
 
         return () => {
             Mousetrap.reset();

@@ -17,7 +17,7 @@ function App() {
         }
     };
 
-    //This section is repetitive. Should be refactored to a single function.
+    //This section is repetitive. Should be refactored as a single function.
 
     function levelOneClass(): string {
         let classes = "description";
