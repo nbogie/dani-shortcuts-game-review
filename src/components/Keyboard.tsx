@@ -32,9 +32,9 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
         return () => {
             Mousetrap.reset();
         };
-    }, [currentLevel, onLevelChange]);
+    }, [currentLevel, onLevelChange]); //check
 
-    return <div>A game to prove your ability with the keyboard!</div>;
+    return <></>;
 };
 
 export default Keyboard;

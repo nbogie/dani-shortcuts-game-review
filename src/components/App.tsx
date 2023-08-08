@@ -5,71 +5,68 @@ import "./App.css";
 function App() {
     const [currentLevel, setCurrentLevel] = useState<number>(0);
 
-    //Really don't need this state, because I can do the conditional rendering using the level state.
-
-    const [isGameOver, setIsGameOver] = useState<boolean>(false);
+    const isGameOver = currentLevel === 8;
 
     const handleLevelChange = (level: number) => {
         setCurrentLevel(level);
-
-        if (level === 8) {
-            setIsGameOver(true);
-        }
     };
 
-    //This section is repetitive. Should be refactored as a single function.
-
-    function levelOneClass(): string {
-        let classes = "description";
-        if (currentLevel === 0) classes = "enable";
-        if (currentLevel > 0) classes = "used";
-        return classes;
-    }
-
-    function levelTwoClass(): string {
-        let classes = "description";
-        if (currentLevel === 1) classes = "enable";
-        if (currentLevel > 1) classes = "used";
-        return classes;
-    }
-
-    function levelThreeClass(): string {
-        let classes = "description";
-        if (currentLevel === 2) classes = "enable";
-        if (currentLevel > 2) classes = "used";
-        return classes;
-    }
-
-    function levelFourClass(): string {
-        let classes = "description";
-        if (currentLevel === 3) classes = "enable";
-        if (currentLevel > 3) classes = "used";
-        return classes;
-    }
-
-    // I could extract the level data to an external array and use map() to display it all.
+    const levelData = [
+        {
+            level: 0,
+            description:
+                "To complete level 1, please use the shortcut which is used to comment out the selected line.",
+        },
+        {
+            level: 1,
+            description:
+                "To complete level 2, please use the shortcut which is used to add indentation to a selected line.",
+        },
+        {
+            level: 2,
+            description:
+                "To complete level 3, please use the shortcut which is used to fit the text to your window.",
+        },
+        {
+            level: 3,
+            description:
+                "To complete level 4, please use the shortcut which is used to toggle the sidebar visibility.",
+        },
+        // ... four more levels missing here.
+    ];
 
     return (
         <div className="App">
             <h1>The Shortcuts Game</h1>
+            <div className="catch-phrase">
+                A game to prove your ability with the keyboard!
+            </div>
+            <div className="game-description">
+                <div>This is developed for Linux and Firefox.</div>
+                <div>
+                    If you're using MacOS, please use Safari browser and Ctrl
+                    key, not CMD.
+                </div>
+            </div>
             <h2>The current level is: {currentLevel}</h2>
-            <Keyboard onLevelChange={handleLevelChange} />{" "}
-            <p className={levelOneClass()}>
-                To complete level 1, please use the shortcut which is used to
-                comment out the selected line.
-            </p>
-            <p className={levelTwoClass()}>
-                To complete level 2, please use the shortcut which is used to
-                add indentation to a selected line.
-            </p>
-            <p className={levelThreeClass()}>
-                To complete level 3, please use the shortcut which is used to
-                fit the text to your window.
-            </p>
-            <p className={levelFourClass()}>
-                To complete level 4, please use the shortcut which is used to
-                toggle the sidebar visibility.
-            </p>
+            <Keyboard onLevelChange={handleLevelChange} />
+
+            {levelData.map((levelInfo) => (
+                <p
+                    key={levelInfo.level}
+                    className={
+                        //maybe extract in separate function
+                        currentLevel === levelInfo.level
+                            ? "enable"
+                            : currentLevel > levelInfo.level
+                            ? "used"
+                            : "description"
+                    }
+                >
+                    {levelInfo.description}
+                </p>
+            ))}
+
             {isGameOver && (
                 <div className="completed-game-container">
                     <div className="completed-game">
@@ -77,7 +74,8 @@ function App() {
                         🎊 GAME COMPLETED! 🎉{" "}
                     </div>
                     <div className="completed-game">
-                        You're a Keyboard Master!
+                        {" "}
+                        You're a Keyboard Master!{" "}
                     </div>
                     <div className="clue-caption">The clue is: </div>
                     <div className="clue">BUMFUZZLE</div>

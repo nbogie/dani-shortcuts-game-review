@@ -10,8 +10,8 @@
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.4rem;
+    margin-bottom: 2rem;
     text-align: center;
     color: #007bff;
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -53,6 +53,11 @@ h2 {
     background-color: #80bdff;
 }
 
+.game-description {
+    font-size: 18px;
+    text-align: center;
+}
+
 .Keyboard button {
     font-size: 1.2rem;
     padding: 8px 16px;
@@ -92,6 +97,12 @@ h2 {
     border-style: solid;
     border-radius: 5px;
     border-color: rgb(250, 116, 116);
+}
+
+.catch-phrase {
+    margin-bottom: 20px;
+    color: #007bff;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 600px) {
