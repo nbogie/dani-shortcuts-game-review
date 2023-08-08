@@ -8,6 +8,9 @@ interface KeyboardProps {
 const Keyboard = ({ onLevelChange }: KeyboardProps) => {
     const [currentLevel, setCurrentLevel] = useState<number>(0);
 
+    // Here is possible to define a function called handleLevelShortcut
+    // and pass different props for each level to avoid repetition.
+
     useEffect(() => {
         Mousetrap.bind("ctrl+/", (e) => {
             e.preventDefault();
@@ -33,6 +36,15 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
 
         Mousetrap.bind("alt+z", () => {
             if (currentLevel === 2) {
+                const newLevel = currentLevel + 1;
+                setCurrentLevel(newLevel);
+                onLevelChange(newLevel);
+            }
+        });
+
+        Mousetrap.bind("ctrl+b", (e) => {
+            e.preventDefault();
+            if (currentLevel === 3) {
                 const newLevel = currentLevel + 1;
                 setCurrentLevel(newLevel);
                 onLevelChange(newLevel);

@@ -4,27 +4,20 @@ import "./App.css";
 
 function App() {
     const [currentLevel, setCurrentLevel] = useState<number>(0);
-    const [levelOneIsCompleted, setLevelOneIsCompleted] =
-        useState<boolean>(false);
-    const [levelTwoIsCompleted, setLevelTwoIsCompleted] =
-        useState<boolean>(false);
-    const [levelThreeIsCompleted, setLevelThreeIsCompleted] =
-        useState<boolean>(false);
+
+    //Really don't need this state, because I can do the conditional rendering using the level state.
+
+    const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
     const handleLevelChange = (level: number) => {
         setCurrentLevel(level);
 
-        // Check if level 1 is completed
-        if (level === 1) {
-            setLevelOneIsCompleted(true);
-        }
-        if (level === 2) {
-            setLevelTwoIsCompleted(true);
-        }
-        if (level === 3) {
-            setLevelThreeIsCompleted(true);
+        if (level === 8) {
+            setIsGameOver(true);
         }
     };
+
+    //This section is repetitive. Should be refactored to a single function.
 
     function levelOneClass(): string {
         let classes = "description";
@@ -47,6 +40,15 @@ function App() {
         return classes;
     }
 
+    function levelFourClass(): string {
+        let classes = "description";
+        if (currentLevel === 3) classes = "enable";
+        if (currentLevel > 3) classes = "used";
+        return classes;
+    }
+
+    // I could extract the level data to an external array and use map() to display it all.
+
     return (
         <div className="App">
             <h1>The Shortcuts Game</h1>
@@ -56,17 +58,19 @@ function App() {
                 To complete level 1, please use the shortcut which is used to
                 comment out the selected line.
             </p>
-            {levelOneIsCompleted && <div>Level 1 is completed!</div>}
             <p className={levelTwoClass()}>
                 To complete level 2, please use the shortcut which is used to
                 add indentation to a selected line.
             </p>
-            {levelTwoIsCompleted && <div>Level 2 is completed!</div>}
             <p className={levelThreeClass()}>
                 To complete level 3, please use the shortcut which is used to
                 fit the text to your window.
             </p>
-            {levelThreeIsCompleted && (
+            <p className={levelFourClass()}>
+                To complete level 4, please use the shortcut which is used to
+                toggle the sidebar visibility.
+            </p>
+            {isGameOver && (
                 <div className="completed-game-container">
                     <div className="completed-game">
                         {" "}

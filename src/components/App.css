@@ -24,7 +24,7 @@ h2 {
 }
 
 .description {
-    font-size: 1.5rem;
+    font-size: 20px;
     color: #c2c2c2;
     max-width: 600px;
     font-weight: lighter;
@@ -33,7 +33,7 @@ h2 {
 }
 
 .used {
-    font-size: 1.5rem;
+    font-size: 17px;
     color: #000000;
     max-width: 600px;
     font-weight: lighter;
@@ -49,7 +49,8 @@ h2 {
     margin-bottom: 1rem;
     border-radius: 5px;
     border-style: solid;
-    border-color: rgb(90, 52, 52);
+    border-color: rgba(0, 15, 179, 0);
+    background-color: #80bdff;
 }
 
 .Keyboard button {
