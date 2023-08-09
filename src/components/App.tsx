@@ -1,14 +1,20 @@
 import { useState } from "react";
 import Keyboard from "./Keyboard";
 import "./App.css";
+import StartPage from "./StartPage";
 
 function App() {
     const [currentLevel, setCurrentLevel] = useState<number>(0);
+    const [gameStarted, setGameStarted] = useState(false);
 
     const isGameOver = currentLevel === 8;
 
     const handleLevelChange = (level: number) => {
         setCurrentLevel(level);
+    };
+
+    const startGame = () => {
+        setGameStarted(true);
     };
 
     const levelData = [
@@ -37,49 +43,52 @@ function App() {
 
     return (
         <div className="App">
-            <h1>The Shortcuts Game</h1>
-            <div className="catch-phrase">
-                A game to prove your ability with the keyboard!
-            </div>
-            <div className="game-description">
-                <div>This is developed for Linux and Firefox.</div>
-                <div>
-                    If you're using MacOS, please use Safari browser and Ctrl
-                    key, not CMD.
-                </div>
-            </div>
-            <h2>The current level is: {currentLevel}</h2>
-            <Keyboard onLevelChange={handleLevelChange} />
-
-            {levelData.map((levelInfo) => (
-                <p
-                    key={levelInfo.level}
-                    className={
-                        //maybe extract in separate function
-                        currentLevel === levelInfo.level
-                            ? "enable"
-                            : currentLevel > levelInfo.level
-                            ? "used"
-                            : "description"
-                    }
-                >
-                    {levelInfo.description}
-                </p>
-            ))}
-
-            {isGameOver && (
-                <div className="completed-game-container">
-                    <div className="completed-game">
-                        {" "}
-                        🎊 GAME COMPLETED! 🎉{" "}
+            {gameStarted ? (
+                <>
+                    <h1>The Shortcuts Game</h1>
+                    <div className="catch-phrase">
+                        A game to prove your ability with the keyboard!
                     </div>
-                    <div className="completed-game">
-                        {" "}
-                        You're a Keyboard Master!{" "}
+                    <div className="game-description">
+                        <div>This is developed for Linux and Firefox.</div>
+                        <div>
+                            If you're using MacOS, please use Safari browser and
+                            Ctrl key, not CMD.
+                        </div>
                     </div>
-                    <div className="clue-caption">The clue is: </div>
-                    <div className="clue">BUMFUZZLE</div>
-                </div>
+                    <h2>The current level is: {currentLevel}</h2>
+                    <Keyboard onLevelChange={handleLevelChange} />
+
+                    {levelData.map((levelInfo) => (
+                        <p
+                            key={levelInfo.level}
+                            className={
+                                currentLevel === levelInfo.level
+                                    ? "enable"
+                                    : currentLevel > levelInfo.level
+                                    ? "used"
+                                    : "description"
+                            }
+                        >
+                            {levelInfo.description}
+                        </p>
+                    ))}
+
+                    {isGameOver && (
+                        <div className="completed-game-container">
+                            <div className="completed-game">
+                                🎊 GAME COMPLETED! 🎉
+                            </div>
+                            <div className="completed-game">
+                                You're a Keyboard Master!
+                            </div>
+                            <div className="clue-caption">The clue is:</div>
+                            <div className="clue">BUMFUZZLE</div>
+                        </div>
+                    )}
+                </>
+            ) : (
+                <StartPage onStart={startGame} />
             )}
         </div>
     );
