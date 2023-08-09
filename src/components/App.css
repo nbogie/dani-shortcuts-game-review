@@ -71,6 +71,27 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+.start-caption {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 60px;
+    color: #ff3434;
+    animation: blink-animation 2.5s infinite;
+}
+
+@keyframes blink-animation {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.3;
+    }
+}
+
 .start-button {
     margin-top: 40px;
     text-align: center;
@@ -125,10 +146,9 @@ h2 {
 .catch-phrase {
     margin-bottom: 24px;
     font-weight: 500;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    color: #007bff;
-    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    color: #0054ad;
+    font-size: 28px;
     text-align: center;
 }
 
