@@ -57,6 +57,7 @@ h2 {
 .game-description {
     font-size: 18px;
     text-align: center;
+    margin: 80px;
 }
 
 .Keyboard button {

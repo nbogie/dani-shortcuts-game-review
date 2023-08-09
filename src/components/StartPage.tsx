@@ -14,6 +14,14 @@ const StartPage: React.FC<StartPageProps> = ({ onStart }) => {
             <p className="catch-phrase">
                 Prove your ability with the keyboard!
             </p>
+            <div className="game-description">
+                <div>
+                    ATTENTION: This game was developed for Linux and Firefox.
+                </div>
+                <div>
+                    In MacOS, please use Safari browser and Ctrl key, not CMD.
+                </div>
+            </div>
             <p className="start-caption">
                 Press Ctrl+a to show the start button.
             </p>

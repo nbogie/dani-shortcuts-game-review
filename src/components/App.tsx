@@ -69,13 +69,6 @@ function App() {
                     <div className="catch-phrase">
                         A game to prove your ability with the keyboard!
                     </div>
-                    <div className="game-description">
-                        <div>This is developed for Linux and Firefox.</div>
-                        <div>
-                            If you're using MacOS, please use Safari browser and
-                            Ctrl key, not CMD.
-                        </div>
-                    </div>
                     <h2>The current level is: {currentLevel}</h2>
                     <Keyboard onLevelChange={handleLevelChange} />
 
