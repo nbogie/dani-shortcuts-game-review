@@ -41,7 +41,7 @@ function App() {
         {
             level: 4,
             description:
-                "To complete level 5, please use the shortcut which is used to quickly open o go to a file.",
+                "To complete level 5, please use the shortcut which is used to quickly open or go to a file.",
         },
         {
             level: 5,
@@ -56,9 +56,8 @@ function App() {
         {
             level: 7,
             description:
-                "To complete the last level, please use one of this advanced shortcuts: the one that opens the settings or the one that removes the selected line.",
+                "To complete the last level, please use the shortcut that moves you to the following square bracket.",
         },
-        // ... four more levels missing here.
     ];
 
     return (

@@ -27,8 +27,7 @@ const Keyboard = ({ onLevelChange }: KeyboardProps) => {
         handleLevelShortcut("ctrl+p", 5);
         handleLevelShortcut("ctrl+l", 6);
         handleLevelShortcut("ctrl+`", 7);
-        handleLevelShortcut("ctrl+,", 8);
-        handleLevelShortcut("ctrl+alt+k", 8);
+        handleLevelShortcut("ctrl+shift+\\", 8);
 
         //Prevent section.
 
