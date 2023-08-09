@@ -38,6 +38,26 @@ function App() {
             description:
                 "To complete level 4, please use the shortcut which is used to toggle the sidebar visibility.",
         },
+        {
+            level: 4,
+            description:
+                "To complete level 5, please use the shortcut which is used to quickly open o go to a file.",
+        },
+        {
+            level: 5,
+            description:
+                "To complete level 6, please use the shortcut which is used to clear your console.",
+        },
+        {
+            level: 6,
+            description:
+                "To complete level 7, please use the shortcut which is used to open the terminal pane.",
+        },
+        {
+            level: 7,
+            description:
+                "To complete the last level, please use one of this advanced shortcuts: the one that opens the settings or the one that removes the selected line.",
+        },
         // ... four more levels missing here.
     ];
 
@@ -46,6 +66,7 @@ function App() {
             {gameStarted ? (
                 <>
                     <h1>The Shortcuts Game</h1>
+                    <p className="i">DO NOT CHEAT!</p>
                     <div className="catch-phrase">
                         A game to prove your ability with the keyboard!
                     </div>
@@ -83,7 +104,7 @@ function App() {
                                 You're a Keyboard Master!
                             </div>
                             <div className="clue-caption">The clue is:</div>
-                            <div className="clue">BUMFUZZLE</div>
+                            <div className="clue">ADA LOVELACE</div>
                         </div>
                     )}
                 </>

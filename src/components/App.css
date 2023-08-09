@@ -71,6 +71,10 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+.i {
+    display: none;
+}
+
 .start-caption {
     text-align: center;
     font-size: 20px;
@@ -115,7 +119,7 @@ h2 {
 }
 
 .completed-game {
-    margin-top: 20px;
+    margin: 20px;
     font-size: 30px;
     font-weight: bolder;
     color: rgb(250, 116, 116);
@@ -125,6 +129,7 @@ h2 {
 
 .clue {
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 25px;
     font-weight: bolder;
     color: rgb(104, 84, 215);
@@ -134,13 +139,15 @@ h2 {
 
 .clue-caption {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
+    font-size: 20px;
 }
 
 .completed-game-container {
     border-style: solid;
     border-radius: 5px;
     border-color: rgb(250, 116, 116);
+    background-color: #f6cece;
 }
 
 .catch-phrase {
