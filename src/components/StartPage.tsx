@@ -38,6 +38,12 @@ const Tests: React.FC<TestsProps> = ({ setShortcutTested }) => {
             setShortcutTested(true);
         });
 
+        //Prevent section.
+
+        Mousetrap.bind("ctrl+[", (e) => {
+            e.preventDefault();
+        });
+
         return () => {
             Mousetrap.reset();
         };
