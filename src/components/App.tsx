@@ -21,42 +21,42 @@ function App() {
         {
             level: 0,
             description:
-                "To complete level 1, please use the shortcut which is used to comment out the selected line.",
+                "Please use the shortcut which is used to comment out the selected line.",
         },
         {
             level: 1,
             description:
-                "To complete level 2, please use the shortcut which is used to add indentation to a selected line.",
+                "Please use the shortcut which is used to add indentation to a selected line.",
         },
         {
             level: 2,
             description:
-                "To complete level 3, please use the shortcut which is used to fit the text to your window.",
+                "Please use the shortcut which is used to fit the text to your window.",
         },
         {
             level: 3,
             description:
-                "To complete level 4, please use the shortcut which is used to toggle the sidebar visibility.",
+                "Please use the shortcut which is used to toggle the sidebar visibility.",
         },
         {
             level: 4,
             description:
-                "To complete level 5, please use the shortcut which is used to quickly open or go to a file.",
+                "Please use the shortcut which is used to quickly open or go to a file.",
         },
         {
             level: 5,
             description:
-                "To complete level 6, please use the shortcut which is used to clear your console.",
+                "Please use the shortcut which is used to clear your console.",
         },
         {
             level: 6,
             description:
-                "To complete level 7, please use the shortcut which is used to open the terminal pane.",
+                "Please use the shortcut which is used to open the terminal pane.",
         },
         {
             level: 7,
             description:
-                "To complete the last level, please use the shortcut that moves you to the following square bracket.",
+                "Please use the shortcut that moves you to the following square bracket.",
         },
     ];
 
