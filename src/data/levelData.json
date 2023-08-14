@@ -1,34 +1,42 @@
 [
     {
         "level": 1,
+        "shortcut": "ctrl+/",
         "description": "Please use the shortcut which is used to comment out the selected line."
     },
     {
         "level": 2,
+        "shortcut": "ctrl+]",
         "description": "Please use the shortcut which is used to add indentation to a selected line."
     },
     {
         "level": 3,
+        "shortcut": "alt+z",
         "description": "Please use the shortcut which is used to fit the text to your window."
     },
     {
         "level": 4,
+        "shortcut": "ctrl+b",
         "description": "Please use the shortcut which is used to toggle the sidebar visibility."
     },
     {
         "level": 5,
+        "shortcut": "ctrl+p",
         "description": "Please use the shortcut which is used to quickly open or go to a file."
     },
     {
         "level": 6,
+        "shortcut": "ctrl+l",
         "description": "Please use the shortcut which is used to clear your console."
     },
     {
         "level": 7,
+        "shortcut": "ctrl+`",
         "description": "Please use the shortcut which is used to open the terminal pane."
     },
     {
         "level": 8,
+        "shortcut": "ctrl+shift+\\",
         "description": "Please use the shortcut that moves you to the following square bracket. (3 keys combo!)"
     }
 ]

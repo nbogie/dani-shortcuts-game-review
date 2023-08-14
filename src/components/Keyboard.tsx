@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Mousetrap from "mousetrap";
+import levelData from "../data/levelData.json";
 
 interface KeyboardProps {
     currentLevel: number;
@@ -17,24 +18,27 @@ const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
             });
         };
 
-        //Event listeners.
+        //Adding event listeners based on the leveData.
 
-        handleLevelShortcut("ctrl+/", 1);
-        handleLevelShortcut("ctrl+]", 2);
-        handleLevelShortcut("alt+z", 3);
-        handleLevelShortcut("ctrl+b", 4);
-        handleLevelShortcut("ctrl+p", 5);
-        handleLevelShortcut("ctrl+l", 6);
-        handleLevelShortcut("ctrl+`", 7);
-        handleLevelShortcut("ctrl+shift+\\", 8);
+        levelData.forEach((levelInfo) => {
+            handleLevelShortcut(levelInfo.shortcut, levelInfo.level);
+        });
 
-        //Prevent section.
+        //Prevent function that groups al the prevents that we need. This is needed to prevent the browser default behaviour.
 
-        handleLevelShortcut("ctrl+[", NaN);
-        handleLevelShortcut("ctrl+a", NaN);
-        handleLevelShortcut("ctrl+z", NaN);
-        handleLevelShortcut("ctrl+f", NaN);
-        handleLevelShortcut("ctrl+[", NaN);
+        function preventDefaultShortcuts(...shortcuts: string[]) {
+            shortcuts.forEach((shortcut) => {
+                handleLevelShortcut(shortcut, NaN);
+            });
+        }
+
+        preventDefaultShortcuts(
+            "ctrl+[",
+            "ctrl+a",
+            "ctrl+z",
+            "ctrl+f",
+            "ctrl+["
+        );
 
         return () => {
             Mousetrap.reset();

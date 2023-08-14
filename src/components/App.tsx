@@ -41,10 +41,10 @@ function App() {
                             key={levelInfo.level}
                             className={
                                 currentLevel === levelInfo.level
-                                    ? "enable"
+                                    ? "active"
                                     : currentLevel > levelInfo.level
-                                    ? "used"
-                                    : "description"
+                                    ? "completed"
+                                    : "upcoming"
                             }
                         >
                             {levelInfo.description}
