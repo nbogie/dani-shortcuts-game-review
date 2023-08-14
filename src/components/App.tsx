@@ -4,13 +4,13 @@ import "./App.css";
 import StartPage from "./StartPage";
 
 function App() {
-    const [currentLevel, setCurrentLevel] = useState<number>(0);
+    const [currentLevel, setCurrentLevel] = useState<number>(1);
     const [gameStarted, setGameStarted] = useState(false);
 
-    const isGameOver = currentLevel === 8;
+    const isGameOver = currentLevel === 9;
 
     const handleLevelChange = (level: number) => {
-        setCurrentLevel(level);
+        setCurrentLevel(level + 1);
     };
 
     const startGame = () => {
@@ -19,44 +19,44 @@ function App() {
 
     const levelData = [
         {
-            level: 0,
+            level: 1,
             description:
                 "Please use the shortcut which is used to comment out the selected line.",
         },
         {
-            level: 1,
+            level: 2,
             description:
                 "Please use the shortcut which is used to add indentation to a selected line.",
         },
         {
-            level: 2,
+            level: 3,
             description:
                 "Please use the shortcut which is used to fit the text to your window.",
         },
         {
-            level: 3,
+            level: 4,
             description:
                 "Please use the shortcut which is used to toggle the sidebar visibility.",
         },
         {
-            level: 4,
+            level: 5,
             description:
                 "Please use the shortcut which is used to quickly open or go to a file.",
         },
         {
-            level: 5,
+            level: 6,
             description:
                 "Please use the shortcut which is used to clear your console.",
         },
         {
-            level: 6,
+            level: 7,
             description:
                 "Please use the shortcut which is used to open the terminal pane.",
         },
         {
-            level: 7,
+            level: 8,
             description:
-                "Please use the shortcut that moves you to the following square bracket.",
+                "Please use the shortcut that moves you to the following square bracket. (3 keys combo!)",
         },
     ];
 
@@ -67,10 +67,16 @@ function App() {
                     <h1>The Shortcuts Game</h1>
                     <p className="i">DO NOT CHEAT!</p>
                     <div className="catch-phrase">
-                        A game to prove your ability with the keyboard!
+                        A game to prove your ability with the keyboard.
                     </div>
-                    <h2>The current level is: {currentLevel}</h2>
-                    <Keyboard onLevelChange={handleLevelChange} />
+                    <div className="warning">
+                        Don't forget to use Ctrl and not CMD key!
+                    </div>
+                    <h2>Current level: {currentLevel}</h2>
+                    <Keyboard
+                        currentLevel={currentLevel}
+                        onLevelChange={handleLevelChange}
+                    />
 
                     {levelData.map((levelInfo) => (
                         <p

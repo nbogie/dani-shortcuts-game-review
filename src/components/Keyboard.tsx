@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Mousetrap from "mousetrap";
 
 interface KeyboardProps {
+    currentLevel: number;
     onLevelChange: (level: number) => void;
 }
 
-const Keyboard = ({ onLevelChange }: KeyboardProps) => {
-    const [currentLevel, setCurrentLevel] = useState<number>(0);
-
+const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
     useEffect(() => {
         const handleLevelShortcut = (shortcut: string, level: number) => {
             Mousetrap.bind(shortcut, (e) => {
                 e.preventDefault();
-                if (currentLevel === level - 1) {
-                    const newLevel = level;
-                    setCurrentLevel(newLevel);
-                    onLevelChange(newLevel);
+                if (currentLevel === level) {
+                    onLevelChange(level);
                 }
             });
         };
+
+        //Event listeners.
 
         handleLevelShortcut("ctrl+/", 1);
         handleLevelShortcut("ctrl+]", 2);
