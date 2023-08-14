@@ -2,6 +2,7 @@ import { useState } from "react";
 import Keyboard from "./Keyboard";
 import "./App.css";
 import StartPage from "./StartPage";
+import levelData from "../data/levelData.json";
 
 function App() {
     const [currentLevel, setCurrentLevel] = useState<number>(1);
@@ -16,49 +17,6 @@ function App() {
     const startGame = () => {
         setGameStarted(true);
     };
-
-    const levelData = [
-        {
-            level: 1,
-            description:
-                "Please use the shortcut which is used to comment out the selected line.",
-        },
-        {
-            level: 2,
-            description:
-                "Please use the shortcut which is used to add indentation to a selected line.",
-        },
-        {
-            level: 3,
-            description:
-                "Please use the shortcut which is used to fit the text to your window.",
-        },
-        {
-            level: 4,
-            description:
-                "Please use the shortcut which is used to toggle the sidebar visibility.",
-        },
-        {
-            level: 5,
-            description:
-                "Please use the shortcut which is used to quickly open or go to a file.",
-        },
-        {
-            level: 6,
-            description:
-                "Please use the shortcut which is used to clear your console.",
-        },
-        {
-            level: 7,
-            description:
-                "Please use the shortcut which is used to open the terminal pane.",
-        },
-        {
-            level: 8,
-            description:
-                "Please use the shortcut that moves you to the following square bracket. (3 keys combo!)",
-        },
-    ];
 
     return (
         <div className="App">
