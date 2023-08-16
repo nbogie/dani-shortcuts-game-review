@@ -24,6 +24,26 @@ h2 {
     text-align: center;
 }
 
+.pressed-key-container {
+    display: inline-block;
+    padding: 4px; /* Adjust padding as needed */
+}
+
+.pressed-key {
+    display: inline-block;
+    padding: 8px 12px;
+    min-width: 50px;
+    width: 140px;
+    height: 50px;
+    background-color: #030213;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 4px;
+    color: rgb(238, 238, 238);
+}
+
 .upcoming {
     font-size: 20px;
     color: #c2c2c2;

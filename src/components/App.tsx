@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Keyboard from "./Keyboard";
 import "./App.css";
 import StartPage from "./StartPage";
@@ -7,6 +7,7 @@ import levelData from "../data/levelData.json";
 function App() {
     const [currentLevel, setCurrentLevel] = useState<number>(1);
     const [gameStarted, setGameStarted] = useState(false);
+    const [pressedKeys, setPressedKeys] = useState<string[]>([]);
 
     const isGameOver = currentLevel === 9;
 
@@ -17,6 +18,30 @@ function App() {
     const startGame = () => {
         setGameStarted(true);
     };
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            const key = event.key;
+            if (!pressedKeys.includes(key)) {
+                setPressedKeys((prevPressedKeys) => [...prevPressedKeys, key]);
+            }
+        };
+
+        const handleKeyUp = (event: KeyboardEvent) => {
+            const key = event.key;
+            setPressedKeys((prevPressedKeys) =>
+                prevPressedKeys.filter((k) => k !== key)
+            );
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("keyup", handleKeyUp);
+        };
+    }, [pressedKeys]);
 
     return (
         <div className="App">
@@ -31,6 +56,12 @@ function App() {
                         Don't forget to use Ctrl and not CMD key!
                     </div>
                     <h2>Current level: {currentLevel}</h2>
+                    <div className="pressed-key-container">
+                        <div className="pressed-key">
+                            Keys_pressed: {pressedKeys.join(", ")}
+                        </div>
+                    </div>
+
                     <Keyboard
                         currentLevel={currentLevel}
                         onLevelChange={handleLevelChange}
