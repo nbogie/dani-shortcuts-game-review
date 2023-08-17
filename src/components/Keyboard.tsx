@@ -38,7 +38,8 @@ const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
             "ctrl+z",
             "ctrl+f",
             "ctrl+[",
-            "/"
+            "/",
+            "tab"
         );
 
         return () => {
