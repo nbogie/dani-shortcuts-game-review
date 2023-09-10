@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ShortcutTester } from "./ShortcutTester";
+import { useShortcutTester } from "./ShortcutTester";
 
 interface StartPageProps {
     onStart: () => void;
@@ -7,6 +7,7 @@ interface StartPageProps {
 
 const StartPage: React.FC<StartPageProps> = ({ onStart }) => {
     const [shortcutTested, setShortcutTested] = useState(false);
+    useShortcutTester(() => setShortcutTested(true));
 
     return (
         <div className="start-page">
@@ -30,7 +31,6 @@ const StartPage: React.FC<StartPageProps> = ({ onStart }) => {
                     <button onClick={onStart}>Start Game!</button>
                 )}
             </div>
-            <ShortcutTester onSuccess={() => setShortcutTested(true)} />
         </div>
     );
 };

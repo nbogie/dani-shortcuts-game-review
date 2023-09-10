@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import Mousetrap from "mousetrap";
 
-interface ShortcutTesterProps {
-    onSuccess: () => void;
-}
-export function ShortcutTester({
-    onSuccess,
-}: ShortcutTesterProps): JSX.Element {
+export function useShortcutTester(onSuccess: () => void): void {
     useEffect(() => {
         Mousetrap.bind("ctrl+a", (e) => {
             e.preventDefault();
@@ -22,6 +17,4 @@ export function ShortcutTester({
             Mousetrap.reset();
         };
     }, [onSuccess]);
-
-    return <div></div>;
 }
