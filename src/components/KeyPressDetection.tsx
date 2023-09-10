@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import Mousetrap from "mousetrap";
-import levelData from "../data/levelData.json";
+import { getLevelsData } from "./LevelsData";
 
-interface KeyboardProps {
+interface KeyPressDetectionProps {
     currentLevel: number;
     onLevelChange: (level: number) => void;
 }
-
-const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
+const KeyPressDetection = ({
+    currentLevel,
+    onLevelChange,
+}: KeyPressDetectionProps) => {
     useEffect(() => {
         const handleLevelShortcut = (shortcut: string, level: number) => {
             Mousetrap.bind(shortcut, (e) => {
@@ -19,12 +21,13 @@ const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
         };
 
         //Adding event listeners based on the leveData.
-
-        levelData.forEach((levelInfo) => {
+        const levelsData = getLevelsData();
+        levelsData.forEach((levelInfo) => {
             handleLevelShortcut(levelInfo.shortcut, levelInfo.level);
         });
 
-        //Prevent function that groups al the prevents that we need. This is needed to prevent the browser default behaviour.
+        //Prevent function that groups al the prevents that we need.
+        //This is needed to prevent the browser default behaviour.
 
         function preventDefaultShortcuts(...shortcuts: string[]) {
             shortcuts.forEach((shortcut) => {
@@ -50,4 +53,4 @@ const Keyboard = ({ currentLevel, onLevelChange }: KeyboardProps) => {
     return <></>;
 };
 
-export default Keyboard;
+export default KeyPressDetection;

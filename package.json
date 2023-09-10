@@ -16,12 +16,12 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/mousetrap": "^1.6.11",
     "mousetrap": "^1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/mousetrap": "^1.6.11",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",

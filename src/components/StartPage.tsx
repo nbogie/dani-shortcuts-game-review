@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Mousetrap from "mousetrap";
+import React, { useState } from "react";
+import { ShortcutTester } from "./ShortcutTester";
 
 interface StartPageProps {
     onStart: () => void;
@@ -30,34 +30,9 @@ const StartPage: React.FC<StartPageProps> = ({ onStart }) => {
                     <button onClick={onStart}>Start Game!</button>
                 )}
             </div>
-            <Tests setShortcutTested={setShortcutTested} />
+            <ShortcutTester onSuccess={() => setShortcutTested(true)} />
         </div>
     );
-};
-
-interface TestsProps {
-    setShortcutTested: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Tests: React.FC<TestsProps> = ({ setShortcutTested }) => {
-    useEffect(() => {
-        Mousetrap.bind("ctrl+a", (e) => {
-            e.preventDefault();
-            setShortcutTested(true);
-        });
-
-        //Prevent section.
-
-        Mousetrap.bind("ctrl+[", (e) => {
-            e.preventDefault();
-        });
-
-        return () => {
-            Mousetrap.reset();
-        };
-    }, [setShortcutTested]);
-
-    return <div></div>;
 };
 
 export default StartPage;
