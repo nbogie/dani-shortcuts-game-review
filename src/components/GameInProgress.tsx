@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
-import KeyPressDetection from "./KeyPressDetection";
-import { GameOverView } from "./GameOverView";
+import { useEffect, useState } from "react";
 import { GameHeading } from "./GameHeading";
-import { PressedKeysView } from "./PressedKeysView";
+import { GameOverView } from "./GameOverView";
+import useKeyPressDetection from "./KeyPressDetection";
 import { getLevelsData } from "./LevelsData";
 import { LevelsDisplay } from "./LevelsDisplay";
+import { PressedKeysView } from "./PressedKeysView";
 
 export type PressedKeys = string[];
 export function GameInProgress() {
     const [currentLevel, setCurrentLevel] = useState<number>(1);
     const [pressedKeys, setPressedKeys] = useState<PressedKeys>([]);
-
-    const isGameOver = currentLevel === 9;
-
     const handleLevelChange = (level: number) => {
         setCurrentLevel(level + 1);
     };
+    useKeyPressDetection(currentLevel, handleLevelChange);
+
+    const isGameOver = currentLevel === 9;
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -48,10 +48,6 @@ export function GameInProgress() {
             <h2>Current level: {currentLevel}</h2>
             <PressedKeysView pressedKeys={pressedKeys} />
 
-            <KeyPressDetection
-                currentLevel={currentLevel}
-                onLevelChange={handleLevelChange}
-            />
             <LevelsDisplay
                 levelsData={getLevelsData()}
                 currentLevel={currentLevel}
@@ -61,4 +57,3 @@ export function GameInProgress() {
         </>
     );
 }
-

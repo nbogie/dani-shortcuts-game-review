@@ -2,16 +2,15 @@ import { useEffect } from "react";
 import Mousetrap from "mousetrap";
 import { getLevelsData } from "./LevelsData";
 
-interface KeyPressDetectionProps {
-    currentLevel: number;
-    onLevelChange: (level: number) => void;
-}
-const KeyPressDetection = ({
-    currentLevel,
-    onLevelChange,
-}: KeyPressDetectionProps) => {
+function useKeyPressDetection(
+    currentLevel: number,
+    onLevelChange: (level: number) => void
+) {
     useEffect(() => {
-        const handleLevelShortcut = (shortcut: string, level: number) => {
+        const registerLevelShortcutHandler = (
+            shortcut: string,
+            level: number
+        ) => {
             Mousetrap.bind(shortcut, (e) => {
                 e.preventDefault();
                 if (currentLevel === level) {
@@ -23,7 +22,7 @@ const KeyPressDetection = ({
         //Adding event listeners based on the leveData.
         const levelsData = getLevelsData();
         levelsData.forEach((levelInfo) => {
-            handleLevelShortcut(levelInfo.shortcut, levelInfo.level);
+            registerLevelShortcutHandler(levelInfo.shortcut, levelInfo.level);
         });
 
         //Prevent function that groups al the prevents that we need.
@@ -31,7 +30,7 @@ const KeyPressDetection = ({
 
         function preventDefaultShortcuts(...shortcuts: string[]) {
             shortcuts.forEach((shortcut) => {
-                handleLevelShortcut(shortcut, NaN);
+                registerLevelShortcutHandler(shortcut, NaN);
             });
         }
 
@@ -49,8 +48,6 @@ const KeyPressDetection = ({
             Mousetrap.reset();
         };
     }, [currentLevel, onLevelChange]); //check
+}
 
-    return <></>;
-};
-
-export default KeyPressDetection;
+export default useKeyPressDetection;
