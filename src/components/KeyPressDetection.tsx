@@ -1,10 +1,11 @@
-import { useEffect } from "react";
 import Mousetrap from "mousetrap";
-import { getLevelsData } from "./LevelsData";
+import { useEffect } from "react";
+import { LevelsData } from "./LevelsData";
 
 function useKeyPressDetection(
     currentLevel: number,
-    onLevelChange: (level: number) => void
+    onLevelChange: (level: number) => void,
+    levelsData: LevelsData
 ) {
     useEffect(() => {
         const registerLevelShortcutHandler = (
@@ -20,7 +21,6 @@ function useKeyPressDetection(
         };
 
         //Adding event listeners based on the leveData.
-        const levelsData = getLevelsData();
         levelsData.forEach((levelInfo) => {
             registerLevelShortcutHandler(levelInfo.shortcut, levelInfo.level);
         });
@@ -47,7 +47,7 @@ function useKeyPressDetection(
         return () => {
             Mousetrap.reset();
         };
-    }, [currentLevel, onLevelChange]); //check
+    }, [currentLevel, onLevelChange, levelsData]); //check
 }
 
 export default useKeyPressDetection;

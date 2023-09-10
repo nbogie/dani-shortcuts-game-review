@@ -13,3 +13,14 @@ export function getLevelsData(): LevelsData {
     //a change in type without you being in control of it
     return levelsDataRaw;
 }
+
+export function getRandomizedLevelsData(): LevelsData {
+    return shuffle(levelsDataRaw).map((level, ix) => ({
+        ...level,
+        level: ix + 1,
+    }));
+}
+
+function shuffle<T>(arr: T[]): T[] {
+    return [...arr].sort(() => (Math.random() < 0.5 ? -1 : 1));
+}
