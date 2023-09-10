@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PressedKeys } from "../components/GameInProgress";
+export type PressedKeys = string[];
 
 export function usePressedKeysTracking(): PressedKeys {
     const [pressedKeys, setPressedKeys] = useState<PressedKeys>([]);
