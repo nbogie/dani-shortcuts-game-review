@@ -6,7 +6,6 @@ import { getRandomizedLevelsData } from "./LevelsData";
 import { LevelsDisplay } from "./LevelsDisplay";
 import { PressedKeysView } from "./PressedKeysView";
 
-export type PressedKeys = string[];
 
 export function GameInProgress() {
     const levelsData = useMemo(getRandomizedLevelsData, []);
