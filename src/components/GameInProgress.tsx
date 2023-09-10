@@ -6,7 +6,6 @@ import { getRandomizedLevelsData } from "./LevelsData";
 import { LevelsDisplay } from "./LevelsDisplay";
 import { PressedKeysView } from "./PressedKeysView";
 
-
 export function GameInProgress() {
     const [currentLevel, setCurrentLevel] = useState<number>(1);
     const handleLevelChange = (level: number) => {
