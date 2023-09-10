@@ -15,12 +15,16 @@ export function getLevelsData(): LevelsData {
 }
 
 export function getRandomizedLevelsData(): LevelsData {
-    return shuffle(levelsDataRaw).map((level, ix) => ({
-        ...level,
-        level: ix + 1,
-    }));
+    return reassignLevelNumbers(shuffle(levelsDataRaw));
 }
 
 function shuffle<T>(arr: T[]): T[] {
     return [...arr].sort(() => (Math.random() < 0.5 ? -1 : 1));
+}
+
+function reassignLevelNumbers(levels: LevelsData): LevelsData {
+    return levels.map((level, ix) => ({
+        ...level,
+        level: ix + 1,
+    }));
 }
