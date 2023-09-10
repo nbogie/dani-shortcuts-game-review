@@ -1,5 +1,5 @@
 import React from "react";
-import { useShortcutTester } from "./ShortcutTester";
+import { useShortcutTester } from "../hooks/useShortcutTester";
 
 interface StartPageProps {
     onStart: () => void;

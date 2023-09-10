@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { GameHeading } from "./GameHeading";
 import { GameOverView } from "./GameOverView";
-import useKeyPressDetection from "./KeyPressDetection";
+import useKeyPressDetection from "../hooks/useKeyPressDetection";
 import { getRandomizedLevelsData } from "./LevelsData";
 import { LevelsDisplay } from "./LevelsDisplay";
 import { PressedKeysView } from "./PressedKeysView";

@@ -1,6 +1,6 @@
 import Mousetrap from "mousetrap";
 import { useEffect } from "react";
-import { LevelsData } from "./LevelsData";
+import { LevelsData } from "../components/LevelsData";
 
 function useKeyPressDetection(
     currentLevel: number,
