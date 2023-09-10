@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Mousetrap from "mousetrap";
 
-export function useShortcutTester(onSuccess: () => void): void {
+export function useShortcutTester(): boolean {
+    const [success, setSuccess] = useState(false);
+
     useEffect(() => {
         Mousetrap.bind("ctrl+a", (e) => {
             e.preventDefault();
-            onSuccess();
+            setSuccess(true);
         });
 
         //Prevent section.
@@ -16,5 +18,6 @@ export function useShortcutTester(onSuccess: () => void): void {
         return () => {
             Mousetrap.reset();
         };
-    }, [onSuccess]);
+    });
+    return success;
 }

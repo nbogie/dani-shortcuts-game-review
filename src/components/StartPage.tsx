@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useShortcutTester } from "./ShortcutTester";
 
 interface StartPageProps {
@@ -6,8 +6,7 @@ interface StartPageProps {
 }
 
 const StartPage: React.FC<StartPageProps> = ({ onStart }) => {
-    const [shortcutTested, setShortcutTested] = useState(false);
-    useShortcutTester(() => setShortcutTested(true));
+    const shortcutTested = useShortcutTester();
 
     return (
         <div className="start-page">
