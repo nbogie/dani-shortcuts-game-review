@@ -1,8 +1,8 @@
-import { Level, LevelsData } from "./LevelsData";
+import { LevelNumber, LevelsData } from "./LevelsData";
 
 interface LevelsDisplayProps {
     levelsData: LevelsData;
-    currentLevel: Level;
+    currentLevel: LevelNumber;
 }
 export function LevelsDisplay({
     levelsData,

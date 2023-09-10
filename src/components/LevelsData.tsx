@@ -1,9 +1,9 @@
 import levelsDataRaw from "../data/levelData.json";
-export type Level = number;
+export type LevelNumber = number;
 
 export type LevelsData = LevelData[];
 interface LevelData {
-    level: Level;
+    level: LevelNumber;
     shortcut: string;
     description: string;
 }

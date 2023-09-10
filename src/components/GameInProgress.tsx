@@ -9,14 +9,11 @@ import { PressedKeysView } from "./PressedKeysView";
 export type PressedKeys = string[];
 
 export function GameInProgress() {
-    const [currentLevel, setCurrentLevel] = useState<number>(1);
     const [pressedKeys, setPressedKeys] = useState<PressedKeys>([]);
-    const handleLevelChange = (level: number) => {
-        setCurrentLevel(level + 1);
-    };
+
     const levelsData = useMemo(getRandomizedLevelsData, []);
 
-    useKeyPressDetection(currentLevel, handleLevelChange, levelsData);
+    const currentLevel = useKeyPressDetection(levelsData);
 
     const isGameOver = currentLevel === 9;
 
